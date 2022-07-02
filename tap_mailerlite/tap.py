@@ -5,13 +5,9 @@ from typing import List
 from singer_sdk import Stream, Tap
 from singer_sdk import typing as th
 
-from tap_mailerlite.streams import (
-    CampaingnsStream,
-    SubscribersGroupsStream,
-    SubscribersStream,
-)
+from tap_mailerlite.streams import SubscribersGroupsStream, SubscribersStream
 
-STREAM_TYPES = [SubscribersStream, SubscribersGroupsStream, CampaingnsStream]
+STREAM_TYPES = [SubscribersStream, SubscribersGroupsStream]
 
 
 class TapMailerLite(Tap):

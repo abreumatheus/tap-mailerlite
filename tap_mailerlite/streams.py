@@ -1,7 +1,5 @@
 """Stream type classes for tap-mailerlite."""
 
-from typing import Any, Dict, Optional
-
 from singer_sdk import typing as th  # JSON Schema typing helpers
 
 from tap_mailerlite.client import MailerLiteStream
@@ -70,34 +68,34 @@ class SubscribersGroupsStream(MailerLiteStream):
     ).to_dict()
 
 
-class CampaingnsStream(MailerLiteStream):
-    """Defines Campaingns stream."""
+# class CampaingnsStream(MailerLiteStream):
+#     """Defines Campaingns stream."""
 
-    name = "campaigns"
-    path = "/campaigns/{status}"
-    primary_keys = ["id"]
-    replication_key = None
-    schema = th.PropertiesList(
-        th.Property("id", th.IntegerType),
-        th.Property("total_recipients", th.IntegerType),
-        th.Property("type", th.StringType),
-        th.Property("date_created", th.StringType),
-        th.Property("date_send", th.StringType),
-        th.Property("name", th.StringType),
-        th.Property("subject", th.StringType),
-        th.Property("status", th.StringType),
-        th.Property(
-            "opened",
-            th.ObjectType(
-                th.Property("count", th.IntegerType),
-                th.Property("rate", th.NumberType),
-            ),
-        ),
-        th.Property(
-            "clicked",
-            th.ObjectType(
-                th.Property("count", th.IntegerType),
-                th.Property("rate", th.NumberType),
-            ),
-        ),
-    ).to_dict()
+#     name = "campaigns"
+#     path = "/campaigns/{status}"
+#     primary_keys = ["id"]
+#     replication_key = None
+#     schema = th.PropertiesList(
+#         th.Property("id", th.IntegerType),
+#         th.Property("total_recipients", th.IntegerType),
+#         th.Property("type", th.StringType),
+#         th.Property("date_created", th.StringType),
+#         th.Property("date_send", th.StringType),
+#         th.Property("name", th.StringType),
+#         th.Property("subject", th.StringType),
+#         th.Property("status", th.StringType),
+#         th.Property(
+#             "opened",
+#             th.ObjectType(
+#                 th.Property("count", th.IntegerType),
+#                 th.Property("rate", th.NumberType),
+#             ),
+#         ),
+#         th.Property(
+#             "clicked",
+#             th.ObjectType(
+#                 th.Property("count", th.IntegerType),
+#                 th.Property("rate", th.NumberType),
+#             ),
+#         ),
+#     ).to_dict()
